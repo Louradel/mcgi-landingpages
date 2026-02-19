@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>MCGI Jasaan | Free Haircut & Mass Indoctrination</title>
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -31,6 +31,7 @@
             background-color: var(--light-bg);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Branding Stripes */
@@ -60,6 +61,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -70,6 +72,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         nav a:hover {
@@ -154,6 +157,8 @@
             font-weight: 500;
             border: 1px solid rgba(255,255,255,0.3);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            max-width: 90%;
+            word-break: break-word;
         }
 
         .hero-location i {
@@ -292,6 +297,7 @@
             display: inline-block;
             padding: 5px 20px;
             border-radius: 50px;
+            word-break: break-word;
         }
 
         .indoctrination-image {
@@ -352,6 +358,7 @@
             gap: 12px;
             border: 1px solid rgba(255,255,255,0.2);
             transition: background 0.3s;
+            word-break: break-word;
         }
 
         .info-row:hover {
@@ -361,6 +368,7 @@
         .info-row i {
             color: var(--mcgi-gold);
             font-size: 1.4rem;
+            flex-shrink: 0;
         }
 
         /* Footer */
@@ -380,17 +388,169 @@
             color: var(--mcgi-gold);
         }
 
-        /* Responsive */
+        /* ========== RESPONSIVE FINE-TUNING ========== */
+
+        /* Tablet & small desktop */
+        @media (max-width: 992px) {
+            .section {
+                padding: 40px 30px;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Mobile landscape & small tablets */
         @media (max-width: 768px) {
-            nav { justify-content: center; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero-badge { font-size: 1rem; padding: 10px 20px; }
-            .section { padding: 30px 20px; margin-top: -40px; }
-            .section h2 { font-size: 2rem; }
-            .indoctrination-content { flex-direction: column; text-align: center; }
-            .indoctrination-text { text-align: center; }
-            .contact-info { flex-direction: column; align-items: center; }
-            .info-row { width: 100%; justify-content: center; }
+            nav {
+                justify-content: center;
+                gap: 20px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero-badge {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+            .section {
+                padding: 30px 20px;
+                margin-top: -40px;
+                border-radius: 25px;
+            }
+            .section h2 {
+                font-size: 2rem;
+            }
+            .description {
+                font-size: 1rem;
+            }
+            .indoctrination-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .indoctrination-text {
+                text-align: center;
+            }
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-row {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Small phones (<=480px) */
+        @media (max-width: 480px) {
+            nav {
+                gap: 15px;
+                padding: 15px 5%;
+            }
+            nav a {
+                font-size: 0.85rem;
+            }
+            .hero {
+                padding: 70px 15px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+            .hero .tagline {
+                font-size: 1rem;
+            }
+            .hero-details {
+                gap: 12px;
+            }
+            .hero-badge {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+                gap: 6px;
+            }
+            .hero-badge i {
+                font-size: 1.2rem;
+            }
+            .hero-location {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+                margin-top: 20px;
+            }
+            .section {
+                padding: 25px 15px;
+                margin-top: -30px;
+                border-radius: 20px;
+            }
+            .section h2 {
+                font-size: 1.8rem;
+            }
+            .section h2:after {
+                width: 60px;
+                height: 3px;
+            }
+            .description {
+                font-size: 0.95rem;
+                margin-bottom: 30px;
+            }
+            .card-grid {
+                gap: 15px;
+            }
+            .card {
+                padding: 30px 15px;
+            }
+            .card h3 {
+                font-size: 1.3rem;
+            }
+            .card p {
+                font-size: 0.9rem;
+            }
+            .indoctrination-box {
+                padding: 20px;
+            }
+            .indoctrination-text h2 {
+                font-size: 1.8rem;
+            }
+            .highlight-date {
+                font-size: 1.1rem;
+                padding: 4px 12px;
+            }
+            .contact {
+                padding: 50px 15px;
+            }
+            .contact h2 {
+                font-size: 2rem;
+            }
+            .info-row {
+                font-size: 0.95rem;
+                padding: 12px 20px;
+            }
+            footer {
+                font-size: 0.85rem;
+                padding: 20px 15px;
+            }
+        }
+
+        /* Very tiny phones (<=360px) */
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            .card h3 {
+                font-size: 1.2rem;
+            }
+            .info-row {
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -416,7 +576,7 @@
             </div>
         </div>
         <div class="hero-location">
-            <i class="fas fa-map-marker-alt"></i> Barangay Luz Banzon, Jasaan, Misamis Oriental
+            <i class="fas fa-map-marker-alt"></i> Barangay Luz Banzon Covercourt, Jasaan, Misamis Oriental 
         </div>
     </header>
 
