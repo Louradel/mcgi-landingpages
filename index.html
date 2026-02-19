@@ -226,6 +226,33 @@
             transform: scale(1.02);
         }
 
+        /* new style for the link below image */
+        .image-link {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: var(--mcgi-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background-color 0.3s, transform 0.2s;
+            border: 1px solid var(--mcgi-gold);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .image-link i {
+            margin-right: 8px;
+            color: var(--mcgi-gold);
+        }
+
+        .image-link:hover {
+            background-color: #002b7a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
         .about-text {
             flex: 2;
         }
@@ -542,6 +569,10 @@
             .card p {
                 font-size: 0.9rem;
             }
+            .image-link {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
             .indoctrination-box {
                 padding: 20px;
             }
@@ -614,11 +645,15 @@
     <main class="section" id="about">
         <h2>About the Program</h2>
 
-        <!-- Row with actual photo on the left (freehaircut.jpg) - now full image visible -->
+        <!-- Row with photo on the left + Facebook link below it -->
         <div class="about-row">
-            <!-- Left side: your photo, full image shown -->
+            <!-- Left side: photo and link -->
             <div class="about-image">
                 <img src="freehaircut.jpg" alt="Free Haircut Outreach">
+                <!-- Facebook link added below the image -->
+             <center>    <a href="https://www.facebook.com/share/19yUi68XB7/" class="image-link" target="_blank" rel="noopener noreferrer">
+                   <i class="fab fa-facebook-f"></i> View on Facebook
+                </a> </center>
             </div>
 
             <!-- Right side: description and cards -->
