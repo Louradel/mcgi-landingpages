@@ -198,19 +198,51 @@
             border-radius: 2px;
         }
 
-        .description {
+        /* about row with image that shows full content */
+        .about-row {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;              /* maintain natural aspect ratio */
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--mcgi-gold);
+            transition: transform 0.3s;
+            display: block;            /* remove extra space */
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text .description {
+            margin: 0 0 30px 0;
+            max-width: none;
             font-size: 1.1rem;
             color: var(--text-light);
-            max-width: 800px;
-            margin: 0 auto 50px;
         }
 
         /* Cards */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 0;
         }
 
         .card {
@@ -220,6 +252,7 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.03);
             border: 1px solid rgba(0,71,171,0.1);
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .card:hover {
@@ -390,7 +423,6 @@
 
         /* ========== RESPONSIVE FINE-TUNING ========== */
 
-        /* Tablet & small desktop */
         @media (max-width: 992px) {
             .section {
                 padding: 40px 30px;
@@ -400,7 +432,6 @@
             }
         }
 
-        /* Mobile landscape & small tablets */
         @media (max-width: 768px) {
             nav {
                 justify-content: center;
@@ -421,8 +452,16 @@
             .section h2 {
                 font-size: 2rem;
             }
-            .description {
+            .about-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 30px;
+            }
+            .about-text .description {
                 font-size: 1rem;
+            }
+            .card-grid {
+                gap: 20px;
             }
             .indoctrination-content {
                 flex-direction: column;
@@ -442,7 +481,6 @@
             }
         }
 
-        /* Small phones (<=480px) */
         @media (max-width: 480px) {
             nav {
                 gap: 15px;
@@ -489,9 +527,8 @@
                 width: 60px;
                 height: 3px;
             }
-            .description {
+            .about-text .description {
                 font-size: 0.95rem;
-                margin-bottom: 30px;
             }
             .card-grid {
                 gap: 15px;
@@ -531,7 +568,6 @@
             }
         }
 
-        /* Very tiny phones (<=360px) */
         @media (max-width: 360px) {
             .hero h1 {
                 font-size: 1.9rem;
@@ -545,11 +581,6 @@
             }
             .card h3 {
                 font-size: 1.2rem;
-            }
-            .info-row {
-                font-size: 0.85rem;
-                flex-wrap: wrap;
-                text-align: center;
             }
         }
     </style>
@@ -565,7 +596,7 @@
     </nav>
 
     <header class="hero">
-        <h1>FREE HAIRCUT</h1>
+        <h1>FREE HAIRCUT WITH FREE LUNCH</h1>
         <p class="tagline">Works of Faith, Hope, and Love for the Glory of God</p>
         <div class="hero-details">
             <div class="hero-badge">
@@ -576,33 +607,45 @@
             </div>
         </div>
         <div class="hero-location">
-            <i class="fas fa-map-marker-alt"></i> Barangay Luz Banzon Covercourt, Jasaan, Misamis Oriental 
+            <i class="fas fa-map-marker-alt"></i> Barangay Natubo Covered Court, Jasaan, Misamis Oriental 
         </div>
     </header>
 
     <main class="section" id="about">
         <h2>About the Program</h2>
-        <p class="description">
-            Our <strong>Free Haircut Outreach</strong> is a community service initiative by <strong>MCGI Cares</strong> aimed at sharing kindness and goodwill. 
-            This program is open to <strong>all males (kids, teens, and adults)</strong>—no payment required. We believe that small acts of service, like a clean haircut, 
-            can make a big difference in the lives of our neighbors.
-        </p>
 
-        <div class="card-grid">
-            <div class="card">
-                <i class="fas fa-cut"></i>
-                <h3>Professional Haircut</h3>
-                <p>Clean and proper grooming provided by our dedicated volunteer barbers.</p>
+        <!-- Row with actual photo on the left (freehaircut.jpg) - now full image visible -->
+        <div class="about-row">
+            <!-- Left side: your photo, full image shown -->
+            <div class="about-image">
+                <img src="freehaircut.jpg" alt="Free Haircut Outreach">
             </div>
-            <div class="card">
-                <i class="fas fa-smile"></i>
-                <h3>Friendly Environment</h3>
-                <p>A welcoming atmosphere for children, youth, and adults alike.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-hand-holding-heart"></i>
-                <h3>Community Fellowship</h3>
-                <p>A simple act of kindness to strengthen our ties in Jasaan.</p>
+
+            <!-- Right side: description and cards -->
+            <div class="about-text">
+                <p class="description">
+                    Our <strong>Free Haircut Program</strong> is a community service initiative by <strong>MCGI Cares</strong> aimed at sharing kindness and goodwill. 
+                    This program is open to <strong>all males (kids, teens, and adults)</strong>—no payment required. We believe that small acts of service, like a clean haircut, 
+                    can make a big difference in the lives of our neighbors.
+                </p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <i class="fas fa-cut"></i>
+                        <h3>Professional Haircut</h3>
+                        <p>Clean and proper grooming provided by our dedicated volunteer barbers.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-smile"></i>
+                        <h3>Friendly Environment</h3>
+                        <p>A welcoming atmosphere for children, youth, and adults alike.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Community Fellowship</h3>
+                        <p>A simple act of kindness to strengthen our ties in Jasaan.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
