@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCGI Jasaan | Free Haircut & Mass Indoctrination</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --mcgi-blue: #0047AB;
+            --mcgi-gold: #f8ad1d;
+            --light-bg: #f4f7f9;
+            --white: #ffffff;
+            --dark-blue: #002b5c;
+            --text-dark: #2c3e50;
+            --text-light: #5a6b7a;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 15px 40px rgba(0,71,171,0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Branding Stripes */
+        .barber-stripe {
+            height: 12px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--mcgi-blue),
+                var(--mcgi-blue) 20px,
+                var(--white) 20px,
+                var(--white) 40px,
+                var(--mcgi-gold) 40px,
+                var(--mcgi-gold) 60px,
+                var(--white) 60px,
+                var(--white) 80px
+            );
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 8%;
+            background: var(--white);
+            gap: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--mcgi-blue);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--mcgi-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(145deg, var(--mcgi-blue) 0%, #002b7a 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* Hero badges */
+        .hero-details {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero-badge {
+            background: var(--mcgi-gold);
+            color: var(--dark-blue);
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        .hero-badge i {
+            font-size: 1.5rem;
+        }
+
+        .hero-location {
+            margin-top: 30px;
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .hero-location i {
+            margin-right: 8px;
+            color: var(--mcgi-gold);
+        }
+
+        /* Main Content Card */
+        .section {
+            max-width: 1200px;
+            margin: -60px auto 60px;
+            background: var(--white);
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section h2 {
+            color: var(--mcgi-blue);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--mcgi-gold);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            padding: 40px 20px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,71,171,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--mcgi-gold);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--mcgi-blue);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Indoctrination Box */
+        .indoctrination-box {
+            background: linear-gradient(135deg, #f9f9ff, #fff);
+            border: 4px solid var(--mcgi-gold);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: left;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .indoctrination-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .indoctrination-text {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .indoctrination-text h3 {
+            color: #777;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+
+        .indoctrination-text h2 {
+            color: var(--mcgi-blue);
+            font-size: 2.2rem;
+            margin-top: 0;
+            border-bottom: none;
+            display: inline-block;
+        }
+
+        .indoctrination-text h2:after {
+            display: none;
+        }
+
+        .highlight-date {
+            font-size: 1.6rem;
+            color: #d48a00;
+            font-weight: 700;
+            margin: 15px 0;
+            background: #fff6e5;
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 50px;
+        }
+
+        .indoctrination-image {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .indoctrination-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border: 5px solid var(--mcgi-gold);
+            transition: transform 0.3s;
+        }
+
+        .indoctrination-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--mcgi-blue), #002b7a);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .contact h2:after {
+            background: var(--mcgi-gold);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-row {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 18px 35px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: background 0.3s;
+        }
+
+        .info-row:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .info-row i {
+            color: var(--mcgi-gold);
+            font-size: 1.4rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1a2a;
+            color: #a0b8cc;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer i {
+            color: var(--mcgi-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { justify-content: center; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-badge { font-size: 1rem; padding: 10px 20px; }
+            .section { padding: 30px 20px; margin-top: -40px; }
+            .section h2 { font-size: 2rem; }
+            .indoctrination-content { flex-direction: column; text-align: center; }
+            .indoctrination-text { text-align: center; }
+            .contact-info { flex-direction: column; align-items: center; }
+            .info-row { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barber-stripe"></div>
+    
+    <nav>
+        <a href="#about">About</a>
+        <a href="#details">Details</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header class="hero">
+        <h1>FREE HAIRCUT</h1>
+        <p class="tagline">Works of Faith, Hope, and Love for the Glory of God</p>
+        <div class="hero-details">
+            <div class="hero-badge">
+                <i class="fas fa-calendar-alt"></i> February 20, 2026
+            </div>
+            <div class="hero-badge">
+                <i class="fas fa-mars"></i> For Males Only
+            </div>
+        </div>
+        <div class="hero-location">
+            <i class="fas fa-map-marker-alt"></i> Barangay Luz Banzon, Jasaan, Misamis Oriental
+        </div>
+    </header>
+
+    <main class="section" id="about">
+        <h2>About the Program</h2>
+        <p class="description">
+            Our <strong>Free Haircut Outreach</strong> is a community service initiative by <strong>MCGI Cares</strong> aimed at sharing kindness and goodwill. 
+            This program is open to <strong>all males (kids, teens, and adults)</strong>—no payment required. We believe that small acts of service, like a clean haircut, 
+            can make a big difference in the lives of our neighbors.
+        </p>
+
+        <div class="card-grid">
+            <div class="card">
+                <i class="fas fa-cut"></i>
+                <h3>Professional Haircut</h3>
+                <p>Clean and proper grooming provided by our dedicated volunteer barbers.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-smile"></i>
+                <h3>Friendly Environment</h3>
+                <p>A welcoming atmosphere for children, youth, and adults alike.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Community Fellowship</h3>
+                <p>A simple act of kindness to strengthen our ties in Jasaan.</p>
+            </div>
+        </div>
+
+        <!-- Mass Indoctrination Section with Image on Right -->
+        <div class="indoctrination-box" id="details">
+            <div class="indoctrination-content">
+                <div class="indoctrination-text">
+                    <h3 style="color: #999;">INTRODUCING</h3>
+                    <h2>MCGI MASS INDOCTRINATION</h2>
+                    <div class="highlight-date">
+                        <i class="fas fa-play-circle" style="margin-right: 8px;"></i>STARTING FEBRUARY 23, 2026
+                    </div>
+                    <p><strong><i class="fas fa-clock" style="margin-right: 5px;"></i> Monday to Friday | 7 PM PHT</strong></p>
+                    <p style="margin: 20px 0;">
+                        Join us for an enriching 14-session study of the Scriptures and the doctrines of our Lord Jesus Christ, 
+                        led by Brother Eli Soriano and Brother Daniel Razon.
+                    </p>
+                    <p><i><i class="fas fa-users" style="margin-right: 5px;"></i> In-person and online sessions are available.</i></p>
+                </div>
+                <div class="indoctrination-image">
+                    <img src="leaflets.png" alt="Mass Indoctrination Leaflet">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="contact" id="contact">
+        <h2>Contact & Inquiries</h2>
+        <div class="contact-info">
+            <div class="info-row">
+                <i class="fas fa-phone-alt"></i> 0929 575 1800
+            </div>
+            <div class="info-row">
+                <i class="fas fa-map-pin"></i> Barangay Luz Banzon, Jasaan (Near Joel Store)
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 MCGI Cares | The Legacy Continues</p>
+        <p><i class="fas fa-heart" style="color: var(--mcgi-gold);"></i> "Let your light so shine before men, that they may see your good works."</p>
+    </footer>
+
+</body>
+</html>
